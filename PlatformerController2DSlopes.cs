@@ -115,7 +115,7 @@ public class PlatformerController2DSlopes : MonoBehaviour {
         }
     }
     private void ApplyGravity() {
-        walled = wallJumping == true && grounded == false && inputX != 0 && velocity.x == 0 ? true : false;//This needs to be here, before gravity gets applied.
+        walled = wallJumping == true && grounded == false && inputX != 0 && velocity.x == 0 && velocity.y < 0 ? true : false;//This needs to be here, before gravity gets applied.
         coyoteTime = walled == true ? startCoyoteTime : coyoteTime;//Coyote time can help to prevent wasting an air jump if you accidently go off the wall before jumping.
 
         if(grounded == false) {
@@ -264,4 +264,5 @@ public class PlatformerController2DSlopes : MonoBehaviour {
             }
         }
     }
+
 }
